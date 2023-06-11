@@ -405,11 +405,6 @@ public final class Builder {
             return;
 
         Action[] actions = options.getActions();
-        if (actions != null && actions.length > 0 ) {
-          // if actions are defined, the user must click on button actions to launch the app.
-          // Don't make the notification clickable in this case
-          return;
-        }
 
         Intent intent = new Intent(context, clickActivity)
                 .putExtra(Notification.EXTRA_ID, options.getId())
