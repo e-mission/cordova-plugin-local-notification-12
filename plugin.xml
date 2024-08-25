@@ -25,7 +25,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-local-notification-12"
-        version="0.1.4-fix-android-action">
+        version="0.1.5-remove-exact-alarms">
 
     <name>LocalNotification</name>
 
@@ -37,7 +37,7 @@
 
     <license>Apache 2.0</license>
 
-    <author>Sebastián bhandaribhumin</author>
+    <author>e-mission team</author>
 
     <!-- cordova -->
     <engines>
@@ -145,7 +145,6 @@
             <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
             <uses-permission android:name="android.permission.WAKE_LOCK" />
             <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-            <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
         </config-file>
 
         <source-file

@@ -220,22 +220,22 @@ public final class Notification {
                 continue;
 
             PendingIntent pi = LaunchUtils.getBroadcastPendingIntent(context, intent);
+            Log.d("local-notification", "Scheduling inexact alarms with intent: " + pi);
 
             try {
                 switch (options.getPrio()) {
                     case PRIORITY_MIN:
-                        mgr.setExact(RTC, time, pi);
+                        mgr.set(RTC, time, pi);
                         break;
                     case PRIORITY_MAX:
                         if (SDK_INT >= M) {
-                            AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(time, pi);
-                            mgr.setAlarmClock(info, pi);
+                            mgr.setAndAllowWhileIdle(RTC_WAKEUP, time, pi);
                         } else {
-                            mgr.setExact(RTC_WAKEUP, time, pi);
+                            mgr.set(RTC_WAKEUP, time, pi);
                         }
                         break;
                     default:
-                        mgr.setExact(RTC_WAKEUP, time, pi);
+                        mgr.set(RTC_WAKEUP, time, pi);
                         break;
                 }
             } catch (Exception ignore) {
